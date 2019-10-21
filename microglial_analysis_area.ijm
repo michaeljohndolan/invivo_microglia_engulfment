@@ -10,8 +10,8 @@ list=getFileList(cropped+"/Cd68");
 for (i=0; i<list.length; i++) {
 
 	//Open the microglial Ilastik segmentations and preprocess 
+	print(cropped+"Microglia/SimpleSegmentation/"+list[i]);
 	open(cropped+"Microglia/SimpleSegmentation/"+list[i]);
-	rename("microglia");
 	run("16-bit");
 	setThreshold(1, 1);
 	run("Convert to Mask");
@@ -22,6 +22,7 @@ for (i=0; i<list.length; i++) {
 
 	//Save the masks 
 	saveAs("Tiff", cropped+"Masks/IBA1_MASK"+list[i]);
+	rename("microglia");
 	close("microglia");
 
 	//Open up the Cd68 channel 
