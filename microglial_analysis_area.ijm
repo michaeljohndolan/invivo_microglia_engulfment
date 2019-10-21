@@ -13,8 +13,8 @@ for (i=0; i<list.length; i++) {
 	open(cropped+"Microglia/SimpleSegmentation/"+list[i]);
 	rename("microglia");
 	run("16-bit");
-	setOption("BlackBackground", false);
-	run("Make Binary");
+	setThreshold(1, 1);
+	run("Convert to Mask");
 	run("Erode");
 	run("Dilate");
 	run("Fill Holes");
