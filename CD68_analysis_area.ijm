@@ -27,7 +27,7 @@ for (i=0; i<list.length; i++) {
 
 	//Open up the Cd68 channel 
 	open(cropped+"Cd68/"+list[i]); 
-	setThreshold(800, 3000); //800 lower looked ok
+	setThreshold(600, 65534); //(600,12000) was good setting, full range of 16bit is 0 to 65535  
 	run("Create Mask");
 	rename(list[i]);
 
